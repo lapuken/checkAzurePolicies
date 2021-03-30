@@ -1,0 +1,1 @@
+ Get-AzNetworkInterface > .\networkInterfaces.csv

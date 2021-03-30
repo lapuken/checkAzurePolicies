@@ -14,19 +14,19 @@ foreach ($azSub in $azSubs) {
 
 $nonCompliantResources = Get-AzPolicyState | Where-Object {$_.ResourceGroup -ne ""}
 
-# Loop through each non-compliant Azure resource to get the details  
+# Loop through each non-compliant Azure resource to get the details 
 foreach ($resource in $nonCompliantResources) {
     $resourceName     = $resource.resourceId.Split('/')[-1]
     $resourceType     = $resource.ResourceType
     $complianceState  = $resource.complianceState
-    $resourceGroup    = $resource.resourceGroup 
+    $resourceGroup    = $resource.resourceGroup
     $resourceLocation = $resource.resourceLocation
-    $PolicyDefinitionReferenceId = $resource.PolicyDefinitionReferenceId 
+    $PolicyDefinitionReferenceId = $resource.PolicyDefinitionReferenceId
     $azPolicy += @($("Resource Name: " + $resourceName), ("Resource Type: " + $resourceType), `
               ("Compliance State: " + $complianceState), ("Resource Group: " + $resourceGroup), `
               ("Policy Initiative: " + $PolicyDefinitionReferenceId), `
               ("Resource Location: " + $resourceLocation), ("Subscription Name: " + $azSub.Name))
-    
+
     $azPolicy += @(" ")
 }
 
