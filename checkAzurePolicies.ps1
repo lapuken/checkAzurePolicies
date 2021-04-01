@@ -14,7 +14,7 @@ foreach ($azSub in $azSubs) {
 
 $nonCompliantResources = Get-AzPolicyState | Where-Object {$_.ResourceGroup -ne ""}
 
-# Loop through each non-compliant Azure resource to get the details 
+# Loop through each non-compliant Azure resource to get the details
 foreach ($resource in $nonCompliantResources) {
     $resourceName     = $resource.resourceId.Split('/')[-1]
     $resourceType     = $resource.ResourceType
