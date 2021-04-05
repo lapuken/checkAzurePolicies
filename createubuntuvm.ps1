@@ -1,3 +1,6 @@
+#create ssh key
+#ssh-keygen -t rsa -b 4096
+
 Get-AzSubscription
 Select-AzSubscription -Subscription "sub-cms-IT"
 
