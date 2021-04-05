@@ -2,9 +2,10 @@ Get-AzSubscription
 Select-AzSubscription -Subscription "sub-cms-IT"
 
 $resourceGroup = "myResourceGroup"
+$locale = "EastUS"
 
 #Create a resource group
-New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location $locale
 
 #Create virtual network resources
 
@@ -16,7 +17,7 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig `
 # Create a virtual network
 $vnet = New-AzVirtualNetwork `
   -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
+  -Location $locale  `
   -Name "myVNET" `
   -AddressPrefix 192.168.0.0/16 `
   -Subnet $subnetConfig
@@ -25,7 +26,7 @@ $vnet = New-AzVirtualNetwork `
 # Create a public IP address and specify a DNS name
 $pip = New-AzPublicIpAddress `
   -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
+  -Location $locale  `
   -AllocationMethod Static `
   -IdleTimeoutInMinutes 4 `
   -Name "mypublicdns$(Get-Random)"
@@ -58,7 +59,7 @@ $nsgRuleWeb = New-AzNetworkSecurityRuleConfig `
 # Create a network security group
 $nsg = New-AzNetworkSecurityGroup `
   -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
+  -Location $locale  `
   -Name "myNetworkSecurityGroup" `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 
@@ -67,7 +68,7 @@ $nsg = New-AzNetworkSecurityGroup `
 $nic = New-AzNetworkInterface `
   -Name "myNic" `
   -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
+  -Location $locale  `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id `
   -NetworkSecurityGroupId $nsg.Id
