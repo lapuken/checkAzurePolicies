@@ -13,7 +13,7 @@ $actionGroupShortName = $actionGroupName
 
 $email1 = New-AzureRmActionGroupReceiver -Name 'user1' `
                                          -EmailReceiver `
-                                         -EmailAddress '9283848@gmail.com' `
+                                         -EmailAddress '283848@gmail.com' `
 
 $sms1   = New-AzureRmActionGroupReceiver -Name 'user2' `
                                          -SmsReceiver  `
