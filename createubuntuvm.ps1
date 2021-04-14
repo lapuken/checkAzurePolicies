@@ -2,7 +2,7 @@
 #ssh-keygen -t rsa -b 4096
 
 Get-AzSubscription
-Select-AzSubscription -Subscription "sub-cms-IT"
+Select-AzSubscription -Subscription "headquarters-prod-001"
 
 $resourceGroup = "myResourceGroup"
 $locale = "EastUS"

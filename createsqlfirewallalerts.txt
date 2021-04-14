@@ -1,0 +1,23 @@
+
+####
+az monitor activity-log alert create \
+--name createPolicyAssignment   \
+--resource-group myResourceGroup \
+--condition category="Administrative" and operationName="Microsoft.Authorization/policyAssignments/write" \
+--scope "/subscriptions/ffd792f2-9059-439e-93a7-62c3f63b9523"   \
+--action-group email-ag
+
+az monitor activity-log alert create \
+--name createSQLfirewallRulesWrite   \
+--resource-group myResourceGroup \
+--condition category="Administrative" and operationName="Microsoft.Sql/servers/firewallRules/write" \
+--scope "/subscriptions/ffd792f2-9059-439e-93a7-62c3f63b9523"   \
+--action-group email-ag
+
+az monitor activity-log alert create \
+--name createSQLfirewallRulesDelete   \
+--resource-group myResourceGroup \
+--condition category="Administrative" and operationName="Microsoft.Sql/servers/firewallRules/delete" \
+--scope "/subscriptions/ffd792f2-9059-439e-93a7-62c3f63b9523"   \
+--action-group email-ag
+###

@@ -2,7 +2,7 @@
 
 $Authorizedlocation = "EastUS"
 $mg = Get-AzManagementGroup | Where-Object  {$_.Name -eq "Contoso"}
-$policyparam = '{ "listOfAllowedLocations": { "value": ["EastUS" ] } }'
+$policyparam = '{ "listOfAllowedLocations": { "value": ["EastUS"] } }'
 
 # Get a reference to the built-in policy definition to assign
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
