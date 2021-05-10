@@ -116,8 +116,8 @@ New-AzPolicyAssignment -Name 'Allowed Service ports' `
 
 
 
-
-
+#Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Kubernetes cluster pod hostPath volumes should only use allowed host paths' }
+#Get-AzureRmPolicyDefinition | Select -ExpandProperty "Properties" | Where-Object { $_.DisplayName -like '*Kubernetes cluster pod hostPath volumes should only use allowed host paths*' }
 
 #Get-AzureRmPolicyDefinition | Select -ExpandProperty "Properties" | Where-Object { $_.DisplayName -like '*Kubernetes cluster containers should only use allowed images*' }
 #Get-AzureRmPolicyDefinition | Select -ExpandProperty "Properties" | Where-Object { $_.DisplayName -like '*Kubernetes cluster containers should only listen on allowed ports' }                       
