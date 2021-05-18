@@ -1,5 +1,6 @@
+# By khido
 # Insert subscriptions into array
-$azSubs = Get-AzSubscription | Where-Object -Property Name -in -value "kk-dev-sub"
+$azSubs = Get-AzSubscription | Where-Object -Property Name -in -value "rk-dev-sub"
 
 # Loop through Subscription array
 foreach ($azSub in $azSubs) {
